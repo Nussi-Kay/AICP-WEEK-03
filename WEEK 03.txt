@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+// Source data (two-dimensional array)
+int electricity_matrix[3][3] = {
+    {55, 65, 75},    // Slab 1: Units consumed for each student
+    {120, 150, 170},  // Slab 2: Units consumed for each student
+    {210, 230, 240}   // Slab 3: Units consumed for each student
+};
+
+// Function to calculate and display cost for slab 1
+void costSlab1() {
+    cout << "Bill for Slab 1 is:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        int units_consumed = electricity_matrix[0][i];
+        int unit_cost = 10;
+        int total_cost = units_consumed * unit_cost;
+        cout << total_cost << "\t";
+    }
+    cout << endl;
+}
+
+// Function to calculate and display cost for slab 2
+void costSlab2() {
+    cout << "Bill for Slab 2 is:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        int units_consumed = electricity_matrix[1][i];
+        int unit_cost = 15;
+        int total_cost = units_consumed * unit_cost;
+        cout << total_cost << "\t";
+    }
+    cout << endl;
+}
+
+// Function to calculate and display cost for slab 3
+void costSlab3() {
+    cout << "Bill for Slab 3 is:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        int units_consumed = electricity_matrix[2][i];
+        int unit_cost = 20;
+        int total_cost = units_consumed * unit_cost;
+        cout << total_cost << "\t";
+    }
+    cout << endl;
+}
+
+// Main menu
+void mainMenu() {
+    int student_id;
+    cout << "Student ID: ";
+    cin >> student_id;
+
+    cout << "Enter your choice:" << endl;
+    cout << "Press 1 to display the bill of slab 1 and 2." << endl;
+    cout << "Press 2 to display the bill of slab 3." << endl;
+    cout << "Press any other key to exit." << endl;
+
+    char choice;
+    cin >> choice;
+
+    switch (choice) {
+        case '1':
+            costSlab1();
+            costSlab2();
+            break;
+        case '2':
+            costSlab3();
+            break;
+        default:
+            cout << "Program terminated. Thank you!" << endl;
+            break;
+    }
+}
+
+int main() {
+    mainMenu();
+    return 0;
+}
